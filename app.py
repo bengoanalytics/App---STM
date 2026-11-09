@@ -29,8 +29,8 @@ TEXTO_NIVEL = {"baja": "Demanda baja", "media": "Demanda media", "alta": "Demand
                "sin dato": "Sin ómnibus programado"}
 # Criterio de demanda: personas que suben por omnibus respecto de su capacidad.
 CAPACIDAD = 70        # pasajeros por omnibus (supuesto del proyecto)
-UMBRAL_MEDIA = 0.15   # desde 15 % de la capacidad -> media
-UMBRAL_ALTA = 0.30    # desde 30 % de la capacidad -> alta
+UMBRAL_MEDIA = 0.05   # desde 5 % de la capacidad -> media
+UMBRAL_ALTA = 0.10    # desde 10 % de la capacidad -> alta
 ORDEN = {"baja": 0, "media": 1, "alta": 2, "sin dato": 9}
 # Feriados no laborables de fecha fija: se tratan como domingo. VERIFICAR / completar.
 FERIADOS = {(1, 1), (5, 1), (7, 18), (8, 25), (12, 25)}
