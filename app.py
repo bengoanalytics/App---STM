@@ -379,7 +379,8 @@ with st.container(border=True):
     fig.update_layout(
         xaxis=dict(tickmode="array", tickvals=horas, ticktext=ticks, title="Hora / ómnibus"),
         yaxis=dict(title="Personas por ómnibus", gridcolor="#ECEEF2"),
-        yaxis2=dict(title="Ómnibus por hora", overlaying="y", side="right", showgrid=False, rangemode="tozero"),
+        yaxis2=dict(title="Ómnibus por hora", overlaying="y", side="right", showgrid=False, rangemode="tozero",
+                    tickformat="d", dtick=2),
         height=380, margin=dict(l=0, r=0, t=10, b=0), plot_bgcolor="#FFFFFF", paper_bgcolor="#FFFFFF",
         showlegend=False, bargap=0.18, font=dict(family="Inter, sans-serif"))
     st.plotly_chart(fig, width="stretch")
@@ -411,7 +412,8 @@ with st.container(border=True):
         text=[f"  {DIRECCION[codigo_parada]}"], textposition="middle right",
         textfont=dict(size=14, color="#14181F"), hovertemplate="%{text}<extra></extra>"))
     fig_mapa.update_layout(
-        map=dict(style="carto-positron", zoom=11.3, center=dict(lat=-34.872, lon=-56.17)),
+        map=dict(style="carto-positron", zoom=11.6,
+                 center=dict(lat=(float(sel["lat"]) - 34.880) / 2, lon=(float(sel["lon"]) - 56.170) / 2)),
         height=520, margin=dict(l=0, r=0, t=0, b=0),
         legend=dict(orientation="h", y=0.01, x=0.01, bgcolor="rgba(255,255,255,0.85)"))
     st.plotly_chart(fig_mapa, width="stretch", key="mapa", on_select=_click_mapa, selection_mode="points")
